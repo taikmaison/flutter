@@ -32,11 +32,25 @@ class _lesson8State extends State<lesson8> {
             subtitle: Text('Мелодрамма'),
             trailing: Icon(Icons.keyboard_arrow_right_outlined),
             onTap: (){ // эфект нажатия на кнопки
-
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_)=>FilmsScreen() )
+                 )
 
             },
           
           ),
+          InkWell(
+            onTap:() {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_)=>FilmsScreen() )
+                 )
+            }
+            ,),
+
+
+
            Card(// Карточка с теню и скруглеными углами . Используеться для визуального группирования элементов
            elevation: 10,// отвечает за уровень теня  
            color: Colors.lime ,
@@ -58,10 +72,19 @@ class _lesson8State extends State<lesson8> {
          
 
           ) ,
+          SizedBox(height: 40,),
 
           ElevatedButton(
-            onPressed: onPressed,
-             child: child
+            onPressed: ()
+            {
+              Navigator.pushNamed(context, '/films')
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (_)=>FilmsScreen() )
+              //    );
+
+            },
+             child: Text('Перейти')
              )
           // Container(color: Colors.deepOrange, height: 200),
           // Container(color: Colors.cyan, height: 200),

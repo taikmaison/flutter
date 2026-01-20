@@ -14,7 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ScreenFilm(), // ← стартовый экран
+      home: ScreenFilm(),routes:{
+        '/films' :(context) => FilmsScreen()
+      } , // ← стартовый экран
     );
   }
 }
