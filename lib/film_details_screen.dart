@@ -23,16 +23,14 @@ class _FilmDetailsScreenState extends State<FilmDetailsScreen> {
       appBar: AppBar(
         title: Text(widget.name),  // Показываем название фильма
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body:Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Жанр: ${widget.genre}', style: TextStyle(fontSize: 18)),
-            SizedBox(height: 8),
-            Text('Рейтинг: ${widget.rating}', style: TextStyle(fontSize: 18)),
-          ],
-        ),
+          const Icon(Icons.movie, size: 250, color: Colors.grey),
+          Text(widget.genre),
+           Text(widget.rating)
+           ],
+           ),
       ),
     );
   }
