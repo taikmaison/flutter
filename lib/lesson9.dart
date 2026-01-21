@@ -1,11 +1,13 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/lesson9dz.dart';
 
 class Lesson9 extends StatefulWidget {
   const Lesson9({super.key});
 
   @override
+  
   State<Lesson9> createState() => _Lesson9State();
 }
 
@@ -17,6 +19,11 @@ class _Lesson9State extends State<Lesson9> {
 
 
   @override
+  void dispose() {
+  nameController.dispose();
+  lastNameController.dispose();
+  super.dispose();
+}
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:
@@ -83,17 +90,22 @@ class _Lesson9State extends State<Lesson9> {
 
                 ElevatedButton 
                 (
-                  onPressed: ()
-                  {
-                    if(formKey.currentState!.validate()){
-
-                      print(nameController.text);
-                      print(lastNameController.text);
-
-                    }
-                  },
+                 onPressed: ()
+                      {
+                        if(formKey.currentState!.validate()){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => Lesson9dz(
+                                peopleName: nameController.text, 
+                                peopleLastName: lastNameController.text
+                              ),
+                            ),
+                          );
+                        }
+                      },
                   
-                  child: Text('Получить текст')
+                  child: Text('Зарегестрироваться')
                 )
               ]
              ),
