@@ -26,9 +26,31 @@ class _FilmDetailsScreenState extends State<FilmDetailsScreen> {
       body:Center(
         child: Column(
           children: [
-          const Icon(Icons.movie, size: 250, color: Colors.grey),
-          Text(widget.genre),
-           Text(widget.rating)
+            SizedBox(height:24),
+          const  
+          Icon(
+            Icons.movie,
+             size: 250, 
+             color: Colors.grey
+             ),
+          Text(
+            widget.genre , 
+            style: TextStyle
+            (
+              fontSize: 24,
+               fontWeight:  FontWeight.bold
+               ),
+              ),
+           Text
+           (
+            widget.rating,
+             style: 
+             TextStyle
+             (
+              fontSize: 20 ,
+               color: Colors.green
+               ),
+            )
            ],
            ),
       ),
