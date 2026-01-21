@@ -98,7 +98,13 @@ class _FilmsScreenState extends State<FilmsScreen> {
                 return InkWell(
                   onTap: () {
                     Navigator.push(context,
-                     MaterialPageRoute(builder:(context) => FilmDetailsScreen(),));
+                     MaterialPageRoute(builder:(context) => FilmDetailsScreen(
+                      name: films[index]['name']!,
+                      genre: films[index]['genre']!,
+                      rating: films[index]['rating']!,
+                      )
+                      ,)
+                      );
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
