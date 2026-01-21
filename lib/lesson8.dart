@@ -1,96 +1,82 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screen_film.dart';
 
-class lesson8 extends StatefulWidget {
-  const lesson8({super.key});
+class Lesson8 extends StatefulWidget {
+  const Lesson8({super.key});
 
   @override
-  State<lesson8> createState() => _lesson8State();
+  State<Lesson8> createState() => _Lesson8State();
 }
 
-class _lesson8State extends State<lesson8> {
+class _Lesson8State extends State<Lesson8> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Lesson8')),
-      body: SingleChildScrollView( 
-        //SingleChildScrollView нужен для того что бы если на экрана будет очень много обьектов , для того что бы ошибки не было и можно было скролить
+      appBar: AppBar(title: const Text('Lesson8')),
+      body: SingleChildScrollView(
         child: Column(
-          children:[
-          Container(color: Colors.deepPurple , height: 200),
-          Divider( //Divider это линия котороя разляеть обьекты 
-            thickness: 4, // thickness параметр который отвечает за тольшину линии
-            height: 0, // height отвечает за отступы с верху и с низу 
-            color: Colors.black, // ответчает за цвет 
-            indent: 16, // отвечает за отступы слева
-            endIndent: 16, // отвечает за отступы справа 
-          ),
-
-          ListTile(// это готовы шаблон для элементов списков
-            minVerticalPadding: 10, //отступы для картинок
-            leading: Image.asset('name'),
-            title: Text('Avatar' , style: TextStyle(fontSize: 20), ),
-            subtitle: Text('Мелодрамма'),
-            trailing: Icon(Icons.keyboard_arrow_right_outlined),
-            onTap: (){ // эфект нажатия на кнопки
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_)=>FilmsScreen() )
-                 )
-
-            },
-          
-          ),
-          InkWell(
-            onTap:() {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_)=>FilmsScreen() )
-                 )
-            }
-            ,),
-
-
-
-           Card(// Карточка с теню и скруглеными углами . Используеться для визуального группирования элементов
-           elevation: 10,// отвечает за уровень теня  
-           color: Colors.lime ,
-           shadowColor: Colors.red, // отвечает за цвет теня
-           child:Column(
-            children:[
-              Text(
-                'Новость для',
-                 style:
-                  TextStyle(
-                    fontWeight :FontWeight.bold,fontSize :4 
-                    ),
+          children: [
+            Container(color: Colors.deepPurple, height: 200),
+            const Divider(
+              thickness: 4,
+              height: 0,
+              color: Colors.black,
+              indent: 16,
+              endIndent: 16,
+            ),
+            ListTile(
+              minVerticalPadding: 10,
+              leading: const Icon(Icons.movie, size: 40), // ✓ Иконка вместо фото
+              title: const Text('Avatar', style: TextStyle(fontSize: 20)),
+              subtitle: const Text('Мелодрамма'),
+              trailing: const Icon(Icons.keyboard_arrow_right_outlined),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const FilmsScreen(
+                      message: 'Привет с первой страницы',
+                      number: 100),
                   ),
-              SizedBox(height: 16,),
-              Text('Сегодня произошло важное событие'),
-            ]
-          ),
-
-         
-
-          ) ,
-          SizedBox(height: 40,),
-
-          ElevatedButton(
-            onPressed: ()
-            {
-              Navigator.pushNamed(context, '/films')
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (_)=>FilmsScreen() )
-              //    );
-
-            },
-             child: Text('Перейти')
-             )
-          // Container(color: Colors.deepOrange, height: 200),
-          // Container(color: Colors.cyan, height: 200),
-          // Container(color: Colors.limeAccent, height: 200),
-          // Container(color: Colors.redAccent, height: 200),
-        ]),
+                );
+              },
+            ),
+            Card(
+              elevation: 10,
+              color: Colors.lime,
+              shadowColor: Colors.red,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: const [
+                    Text(
+                      'Новость дня',
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
+                    SizedBox(height: 16),
+                    Text('Сегодня произошло важное событие'),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const FilmsScreen(
+                      message: 'Экран фильмов',
+                      number: 200
+                      ),
+                  ),
+                );
+              },
+              child: const Text('Перейти'),
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }
